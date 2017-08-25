@@ -1,0 +1,3 @@
+# blackJack
+Blackjack game
+使用zepto开发的一个21点游戏，同样使用app的webview与js的互相调用
