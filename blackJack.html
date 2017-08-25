@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <meta name="keywords" content="21点">
+    <meta name="description" content="21点">
+    <link rel="stylesheet" href="${image_server_url}images/blackJack/css/blackJack.css">
+    <link rel="stylesheet" href="${image_server_url}images/commonVendor/css/cssreset.min.css">
+    <script src="${image_server_url}images/commonVendor/vendor/felx.js"></script>
+    <script src="${image_server_url}images/commonVendor/vendor/zepto.min.js"></script>
+    <title>21点</title>
+</head>
+<body>
+<header id="head">
+    <div id="iconHorn" class="fl"></div>
+    <div id="playList" class="fl">
+        <ul id="slidList"></ul>
+    </div>
+    <div id="headerNav" class="fr">
+        <div id="iconRecord" class="fl"></div>
+        <div id="iconRule" class="fl"></div>
+    </div>
+</header>
+<div id="blackJack">
+    <div id="userInformation">
+        <div id="userHeadImg" class="fl">
+            <img src="${image_server_url}images/blackJack/img/default_userHead.png" alt="未登录">
+        </div>
+        <div id="userMessage" class="fl">
+            <p id="userId"></p>
+            <p id="userBeans">
+                <span id="iconGoldBean">
+                    <img src="${image_server_url}images/blackJack/img/icon-goldBeans.png" alt="">
+                </span>
+                <span id="BeansNum"></span>
+            </p>
+        </div>
+        <div id="addBeans" class="fl"></div>
+    </div>
+    <div id="BJArea">
+        <div id="bankerArea">
+            <div class="fl" id="showBet">
+                <div id="betImg" class="fl">
+                    <img src="${image_server_url}images/blackJack/img/chip60_1.png">
+                    <span></span>
+                </div>
+                <div id="betSub" class="fl">×<span id="bet"></span></div>
+            </div>
+            <div class="fl pokerArea" id="bankerPoker"></div>
+            <div class="fr pointText" id="bankerPoint"></div>
+        </div>
+        <div id="basicRules">庄家低于16必要，17必不要</div>
+        <div id="playerArea">
+            <div class="fl" id="betNum"><span>0</span></div>
+            <div class="fl pokerArea" id="playerPoker"></div>
+            <div class="fr pointText noBoom" id="playerPoint"></div>
+        </div>
+    </div>
+    <div id="drawWarn"></div>
+    <div id="blackJackWarn"></div>
+    <div id="floatImg"></div>
+</div>
+<footer id="foot">
+    <div id="gameInit" class="footArea">
+        <ul id="chipList" class="fl footCommonBG">
+            <li class="chipNum fl">
+                <img src="${image_server_url}images/blackJack/img/chip86_1.png" alt="">
+                <span></span>
+            </li>
+            <li class="chipNum fl">
+                <img src="${image_server_url}images/blackJack/img/chip86_2.png" alt="">
+                <span></span>
+            </li>
+            <li class="chipNum fl">
+                <img src="${image_server_url}images/blackJack/img/chip86_3.png" alt="">
+                <span></span>
+            </li>
+        </ul>
+        <div id="initBtn" class="fl footBtn">
+            <button id="revokeBtn" class="fl"></button>
+            <button id="letGo" class="fl"></button>
+        </div>
+    </div>
+    <div id="TakeCard" class="footArea">
+        <div id="countDown" class="fl footCommonBG">
+            <div id="clock" class="fl">
+                <img src="${image_server_url}images/blackJack/img/clock.png" alt="">
+            </div>
+            <div id="timeDown" class="fl"><span id="minute"></span>:<span id="second"></span></div>
+        </div>
+        <div id="TakeCardBtn" class="fl footBtn">
+            <button id="stopGet" class="fl"></button>
+            <button id="getNext" class="fl"></button>
+        </div>
+    </div>
+</footer>
+<div id="ruleWindow" class="popWindow">
+    <div id="mainRule">
+        <h3>玩法说明</h3>
+        <div id="ruleBody">
+            <ul id="ruleList">
+                <li>
+                    极速21点是一款轻松愉快的扑克小游戏，即对比玩家或者庄家的牌的点数哪一方更接近21点（点数需小于等于21点），更接近一方将赢得赌注，其中10、J、Q、K点数都当作10点，Ace(A)可当作1点或11点，2到9则为原面值点数;
+                    <br/><b>详细规则:</b>
+                </li>
+                <li>
+                    1.玩家投注：您选择左下角的投注额度，点击进行投注，反复点击可以完成多次投注;
+                </li>
+                <li>
+                    2.确认投注：玩家确认投注后，在规定时间内要牌（获得一张新牌，点数增加）/停牌（停止要牌，进入庄家要牌阶段）;
+                </li>
+                <li>
+                    3.展示结果：庄家按规则（庄家手牌大于等于17点不可要牌，小于17点必须要牌）要牌之后，对比庄家玩家最终牌面点数，双方更接近21点者获胜。
+                </li>
+                <li>
+                    <b>其他:</b><br/>
+                    1.庄家或玩家点数超过21点即为爆牌直接判负;<br/>
+                    2.庄家玩家点数完全一致时记为平局，玩家收回投注;<br/>
+                    3.当前两张牌为A以及其他任意10点牌时，为blackjack（胜过普通21点的牌型），当玩家通过blackjack取胜时，会获得更多奖励。
+                </li>
+            </ul>
+        </div>
+        <div id="returnGame"></div>
+    </div>
+
+</div>
+<div id="shareWindow" class="popWindow">
+    <div id="mainShare">
+        <div id="closeShare" class="fr">
+            <img src="${image_server_url}images/blackJack/img/icon_close.png" alt="关闭">
+        </div>
+        <div id="shareBody">
+            <div id="shareImg">
+                <img src="${image_server_url}images/blackJack/img/bg_win.png">
+            </div>
+            <div id="shareText">赢得<span></span>金豆</div>
+        </div>
+        <div id="shareWidowBtn">
+            <div id="shareBtn" class="fl shareWindowBtn"></div>
+            <div id="anotherGame" class="fr shareWindowBtn"></div>
+        </div>
+    </div>
+</div>
+<div class="popWindow" id="maxBeans">
+    <div class="alertWindow">
+        <div class="alertWindowTop">
+            <h3>提示</h3>
+            <p>投注超出上限请重新投注！</p>
+        </div>
+        <div class="alertWindowBot">
+            <div id="cancel" class="alertBtn fl">取消</div>
+            <div id="makeSure" class="alertBtn fl">确定</div>
+        </div>
+    </div>
+</div>
+<div class="popWindow" id="noEnough">
+    <div class="alertWindow">
+        <div class="alertWindowTop">
+            <h3>提示</h3>
+            <p>你的金豆余额不足,请获取！</p>
+        </div>
+        <div class="alertWindowBot">
+            <div id="cancelRecharge" class="alertBtn fl">暂不需要</div>
+            <div id="ToUpBeans" class="alertBtn fl">获取</div>
+        </div>
+    </div>
+</div>
+<div class="popWindow" id="exitWindow">
+    <div class="alertWindow">
+        <div class="alertWindowTop">
+            <h3>你确认要离开?</h3>
+            <p>据说99%的玩家在这里赚到了！</p>
+        </div>
+        <div class="alertWindowBot">
+            <div id="exitGame" class="alertBtn fl">狠心离开</div>
+            <div id="goBackGame" class="alertBtn fl">继续游戏</div>
+        </div>
+    </div>
+</div>
+<script src="${image_server_url}images/blackJack/js/blackJack.min.js"></script>
+<!--<script src="${image_server_url}images/blackJfontk/js/blackJackfontc.js"></script>-->
+<!--<script src="${image_server_url}images/blackJfontk/js/blackJackMfontn.js"></script>-->
+<!--<script src="${image_server_url}images/blackJfontk/js/blackJackfontt.js"></script>-->
+
+<script>
+
+    function initGame(data) {
+        var data = JSON.parse(data);
+        GameMain.initGame(data);
+    }
+
+    function startGame(data) {
+        var data = JSON.parse(data);
+        GameMain.gameBegin(data);
+    }
+
+
+    function getPoker(data) {
+        var data = JSON.parse(data);
+        GameMain.getPoker(data);
+    }
+
+    function stopGame(data) {
+        var data = JSON.parse(data);
+        GameMain.inBankerRound(data);
+    }
+
+    function getSlide(data) {
+        var data = JSON.parse(data);
+        GameMain.createSlideList(data);
+    }
+
+    function quitGame() {
+       GameMain.quitGame();
+    }
+
+
+</script>
+</body>
+</html>

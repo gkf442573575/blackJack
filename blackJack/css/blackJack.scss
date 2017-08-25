@@ -1,0 +1,689 @@
+$designWidth: 750;
+$remCount: 10;
+@function px2rem($px) {
+  @return ($px*($remCount/$designWidth))*1rem;
+}
+
+@charset "UTF-8";
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+html, body {
+  height: 100%;
+  min-height: 100%;
+  font-family: "PingFang-SC-Medium", "PingFang SC", "San Francisco", "sans-serif", "Arial", "Microsoft YaHei";
+  background: linear-gradient(#1a2443, #0f0f31, #2ca089, #25292f);
+  background: -webkit-linear-gradient(#1a2443, #0f0f31, #2ca089, #25292f);
+  background: -o-linear-gradient(#1a2443, #0f0f31, #2ca089, #25292f);
+  background: -moz-linear-gradient(#1a2443, #0f0f31, #2ca089, #25292f);
+}
+
+element {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/******************header**********************/
+#head {
+  width: 100%;
+  height: px2rem(68);
+  background: #1a2443;
+  color: #ffffff;
+  font-size: px2rem(24);
+  line-height: px2rem(68);
+  overflow: hidden;
+  #iconHorn {
+    width: px2rem(28);
+    height: px2rem(28);
+    background: url("../img/icon_horn.png") no-repeat;
+    background-size: contain;
+    margin: px2rem(20) px2rem(30) 0 px2rem(30);
+  }
+  #playList {
+    width: px2rem(400);
+    height: 100%;
+    overflow: hidden;
+    ul {
+      width: 100%;
+      overflow: hidden;
+      background: rgba(0,0,0,0);
+      li {
+        width: 100%;
+        box-sizing: border-box;
+        height: px2rem(68);
+        color: #ffffff;
+      }
+    }
+
+  }
+  #headerNav {
+    div {
+      width: px2rem(80);
+      height: px2rem(30);
+      margin-top: px2rem(19);
+    }
+    #iconRecord {
+      background: url("../img/icon_record.png") no-repeat;
+      background-size: contain;
+      padding-right: px2rem(20);
+    }
+    #iconRule {
+      background: url("../img/icon_rule.png") no-repeat 50% 50%;
+      background-size: contain;
+      padding: 0 px2rem(30) 0 px2rem(20);
+      border-left: 1px solid #6074a8;
+    }
+  }
+}
+
+/******************blackJack**********************/
+#blackJack {
+  width: 100%;
+  height: px2rem(1017);
+  background-image: url("../img/bg/Game_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  #userInformation {
+    min-width: px2rem(250);
+    height: px2rem(58);
+    border-radius: px2rem(58);
+    position: absolute;
+    left: px2rem(30);
+    top: px2rem(36);
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+    #userHeadImg {
+      width: px2rem(58);
+      height: px2rem(58);
+      border-radius: px2rem(58);
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: px2rem(58);
+      }
+    }
+    #userMessage {
+      min-width: px2rem(130);
+      height: 100%;
+      margin-left: px2rem(12);
+      p {
+        width: 100%;
+        box-sizing: border-box;
+        height: 50%;
+        font-size: px2rem(20);
+        color: #ffffff;
+        line-height: px2rem(29);
+      }
+      #userBeans {
+        span {
+          float: left;
+        }
+        #BeansNum {
+          text-indent: px2rem(5);
+        }
+        #iconGoldBean {
+          width: px2rem(32);
+          height: px2rem(28);
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+    #addBeans {
+      width: px2rem(28);
+      height: px2rem(28);
+      margin: px2rem(15) 0 0 px2rem(8);
+      background: url("../img/icon_add.png") no-repeat;
+      background-size: contain;
+    }
+  }
+  #BJArea {
+    width: 100%;
+    height: px2rem(474);
+    position: relative;
+    left: 0;
+    top: px2rem(416);
+    z-index: 2;
+    .pointText {
+      position: absolute;
+      //font-family: "Adobe Fan Heiti Std B";
+      line-height: px2rem(135);
+      width: px2rem(135);
+      height: px2rem(135);
+      //margin-right: px2rem(38);
+      right: px2rem(38);
+      font-weight: bold;
+      font-size: px2rem(22);
+      text-align: center;
+    }
+    .pokerArea {
+      width: px2rem(364);
+      height: px2rem(192);
+      position: absolute;
+      left: 50%;
+      margin-left: px2rem(-182);
+      z-index: 4;
+      -webkit-perspective-origin: 50% 50%;
+      -moz-perspective-origin: 50% 50%;
+      -ms-perspective-origin: 50% 50%;
+      -o-perspective-origin: 50% 50%;
+      perspective-origin: 50% 50%;
+      -webkit-perspective: 900px;
+      -moz-perspective: 900px;
+      -ms-perspective: 900px;
+      -o-perspective: 900px;
+      perspective: 900px;
+      .poker {
+        width: px2rem(113);
+        height: px2rem(150);
+        margin-top: px2rem(21);
+        position: absolute;
+        -webkit-transform: translate(px2rem(700), px2rem(-200));
+        -moz-transform: translate(px2rem(700), px2rem(-200));
+        -ms-transform: translate(px2rem(700), px2rem(-200));
+        -o-transform: translate(px2rem(700), px2rem(-200));
+        transform: translate(px2rem(700), px2rem(-200));
+        -webkit-perspective-origin: 50% 50%;
+        -moz-perspective-origin: 50% 50%;
+        -ms-perspective-origin: 50% 50%;
+        -o-perspective-origin: 50% 50%;
+        perspective-origin: 50% 50%;
+        -webkit-perspective: 900px;
+        -moz-perspective: 900px;
+        -ms-perspective: 900px;
+        -o-perspective: 900px;
+        perspective: 900px;
+        -webkit-transform-origin: 50% 50%;
+        -moz-transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%;
+        -o-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        img {
+          width: 100%;
+          -webkit-transform-origin: 50% 50%;
+          -moz-transform-origin: 50% 50%;
+          -ms-transform-origin: 50% 50%;
+          -o-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+          -webkit-transform: rotateY(180deg);
+          -moz-transform: rotateY(180deg);
+          -ms-transform: rotateY(180deg);
+          -o-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+        }
+      }
+
+    }
+    #bankerArea {
+      width: 100%;
+      height: px2rem(192);
+      #showBet {
+        min-width: px2rem(160);
+        height: px2rem(80);
+        margin: px2rem(112) 0 0 px2rem(30);
+        -webkit-transform: translateX(px2rem(-300));
+        -moz-transform: translateX(px2rem(-300));
+        -ms-transform: translateX(px2rem(-300));
+        -o-transform: translateX(px2rem(-300));
+        transform: translateX(px2rem(-300));
+        position: relative;
+        z-index: 3;
+        #betImg {
+          width: px2rem(60);
+          height: px2rem(60);
+          line-height: px2rem(60);
+          text-align: center;
+          font-size: px2rem(20);
+          color: #ffffff;
+          margin: px2rem(10) px2rem(8) 0 0;
+          position: relative;
+          img, span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: block;
+            left: 0;
+            top: 0;
+          }
+          span {
+            line-height: px2rem(60);
+          }
+        }
+        #betSub {
+          width: auto;
+          height: 100%;
+          font-size: px2rem(50);
+          color: #ead50e;
+          font-weight: bold;
+          -webkit-text-stroke: px2rem(2) #d87e08;
+          -moz-text-stroke: px2rem(2) #d87e08;
+          -o-text-stroke: px2rem(2) #d87e08;
+          text-stroke: px2rem(2) #d87e08;
+          line-height: px2rem(80);
+        }
+      }
+      #bankerPoker {
+        top: 0;
+      }
+      #bankerPoint {
+        top: 0;
+        background: url("../img/banker_point.png") no-repeat;
+        background-size: contain;
+        color: #494c4b;
+        display: none;
+      }
+    }
+    #basicRules {
+      width: 100%;
+      height: px2rem(90);
+      line-height: px2rem(90);
+      text-align: center;
+      font-size: px2rem(32);
+      color: #ffffff;
+    }
+    #playerArea {
+      width: 100%;
+      height: px2rem(192);
+      #playerPoker {
+        top: px2rem(282);
+      }
+      #betNum {
+        width: px2rem(160);
+        height: px2rem(100);
+        background: url("../img/bet_sub.png") no-repeat;
+        background-size: contain;
+        margin-left: px2rem(30);
+        position: relative;
+        span {
+          width: px2rem(82);
+          height: px2rem(30);
+          line-height: px2rem(30);
+          position: absolute;
+          display: block;
+          left: px2rem(70);
+          top: px2rem(52);
+          font-size: px2rem(24);
+          color: #ffe000;
+        }
+      }
+      .boom {
+        background-image: url("../img/bg_boom.png");
+        width: px2rem(163);
+        height: px2rem(109);
+        line-height: px2rem(109);
+      }
+      .noBoom {
+        background-image: url("../img/player_point.png");
+      }
+      #playerPoint {
+        top: px2rem(282);
+        background-repeat: no-repeat;
+        background-size: contain;
+        color: #b30c0f;
+        display: none;
+      }
+    }
+  }
+  #drawWarn {
+    width: px2rem(408);
+    height: px2rem(58);
+    position: absolute;
+    z-index: 5;
+    background: url("../img/warn_bg.png") no-repeat;
+    background-size: contain;
+    left: 50%;
+    top: px2rem(800);
+    margin-left: px2rem(-204);
+    text-align: center;
+    line-height: px2rem(58);
+    font-size: px2rem(36);
+    color: #ffffff;
+    display: none;
+  }
+  #blackJackWarn {
+    width: px2rem(340);
+    height: px2rem(80);
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    margin-left: px2rem(-170);
+    bottom: px2rem(64);
+    background: url("../img/blackJack.png") no-repeat;
+    background-size: contain;
+    display: none;
+  }
+  #floatImg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    img {
+      width: px2rem(60);
+      height: px2rem(60);
+      position: absolute;
+      left: px2rem(120);
+      bottom: 0;
+    }
+  }
+}
+
+/******************footer**********************/
+#foot {
+  width: 100%;
+  height: px2rem(120);
+  background: url("../img/bg_footer.png") repeat-x;
+  background-size: contain;
+  .footBtn {
+    width: px2rem(370);
+    height: px2rem(120);
+    margin-left: px2rem(42);
+    button {
+      width: px2rem(164);
+      height: px2rem(120);
+    }
+  }
+  .footCommonBG {
+    width: px2rem(308);
+    height: px2rem(120);
+    background: url("../img/bg_bet.png") no-repeat;
+    background-size: contain;
+    margin-left: px2rem(30);
+    border-radius: px2rem(86);
+  }
+  #gameInit {
+    width: 100%;
+    height: px2rem(120);
+    #chipList {
+      .chipNum {
+        width: px2rem(86);
+        height: px2rem(86);
+        margin-top: px2rem(17);
+        text-align: center;
+        line-height: px2rem(86);
+        font-size: px2rem(30);
+        color: #ffffff;
+        position: relative;
+        img, span {
+          float: left;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+        }
+        span {
+          line-height: px2rem(86);
+        }
+      }
+      .chipNum:nth-child(1) {
+        margin-left: px2rem(10);
+      }
+      .chipNum:nth-child(2), .chipNum:nth-child(3) {
+        margin-left: px2rem(12);
+      }
+    }
+    #initBtn {
+      #revokeBtn {
+        background: url("../img/btn_revoke.png") no-repeat;
+        background-size: contain;
+      }
+      #letGo {
+        background: url("../img/btn_begin.png") no-repeat;
+        background-size: contain;
+        margin-left: px2rem(15);
+      }
+    }
+  }
+  #TakeCard {
+    width: 100%;
+    height: px2rem(120);
+    display: none;
+    #countDown {
+      #clock {
+        width: px2rem(70);
+        height: px2rem(70);
+        margin: px2rem(25) 0 0 px2rem(20);
+        img {
+          width: 100%;
+        }
+      }
+      #timeDown {
+        width: auto;
+        color: #ffffff;
+        height: 100%;
+        line-height: px2rem(120);
+        font-size: px2rem(50);
+        margin-left: px2rem(12);
+      }
+    }
+    #TakeCardBtn {
+      #getNext {
+        background: url("../img/btn_getNext.png") no-repeat;
+        background-size: contain;
+        margin-left: px2rem(15);
+      }
+      #stopGet {
+        background: url("../img/btn_stopGet.png") no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+}
+
+/**************windowMain************************/
+.popWindow {
+  position: absolute;
+  width: 100%;
+  height:100%;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/******************ruleWindow**********************/
+#ruleWindow {
+  display: none;
+  #mainRule {
+    width: px2rem(610);
+    height: px2rem(710);
+    position: relative;
+    background: url("../img/bg_rule.png") no-repeat;
+    background-size: contain;
+    left: 50%;
+    top: px2rem(208);
+    margin-left: px2rem(-305);
+    h3 {
+      width: 100%;
+      height: px2rem(86);
+      line-height: px2rem(86);
+      text-align: center;
+      color: #ffffff;
+      font-size: px2rem(36);
+    }
+    #ruleBody {
+      width: 100%;
+      height: px2rem(490);
+      box-sizing: border-box;
+      padding: 0 px2rem(60);
+      overflow-y: auto;
+      #ruleList {
+        overflow: hidden;
+        color: #98B4FF;
+        font-size: px2rem(24);
+        line-height: px2rem(50);
+        b{
+          font-weight: bold;
+        }
+      }
+    }
+
+    #returnGame {
+      width: px2rem(298);
+      height: px2rem(82);
+      background: url("../img/btn_returnGame.png") no-repeat;
+      background-size: contain;
+      position: absolute;
+      z-index: 10;
+      left: 50%;
+      margin-left: px2rem(-149);
+      bottom: px2rem(56);
+    }
+  }
+}
+
+/******************shareWindow**********************/
+#shareWindow {
+  display: none;
+  #mainShare {
+    width: px2rem(690);
+    height: px2rem(734);
+    position: relative;
+    left: 50%;
+    top: px2rem(110);
+    margin-left: px2rem(-345);
+    #closeShare {
+      width: px2rem(60);
+      height: px2rem(60);
+      margin-right: px2rem(52);
+      img {
+        width: 100%;
+      }
+    }
+    #shareBody {
+      width: 100%;
+      overflow: hidden;
+      #shareImg {
+        width: 100%;
+        height: px2rem(460);
+        img {
+          width: 100%;
+        }
+      }
+      #shareText {
+        width: 100%;
+        height: px2rem(68);
+        text-align: center;
+        line-height: px2rem(68);
+        color: #ffffff;
+        font-size: px2rem(66);
+        font-weight: bold;
+        span {
+          color: #f9da2d;
+        }
+      }
+    }
+    #shareWidowBtn {
+      width: 100%;
+      height: px2rem(68);
+      margin-top: px2rem(68);
+      .shareWindowBtn {
+        width: px2rem(242);
+        height: px2rem(68);
+      }
+      #shareBtn {
+        background: url("../img/btn_share.png") no-repeat;
+        background-size: contain;
+        margin-left: px2rem(80);
+      }
+      #anotherGame {
+        background: url("../img/btn_goon.png") no-repeat;
+        background-size: contain;
+        margin-right: px2rem(80);
+      }
+    }
+  }
+}
+
+/******************alertWindow**********************/
+.alertWindow {
+  width: px2rem(537);
+  height: px2rem(258);
+  position: absolute;
+  z-index: 15;
+  top:50%;
+  left: 50%;
+  margin-top: px2rem(-129);
+  margin-left: px2rem(-269);
+  background: #ffffff;
+  border-radius: px2rem(18);
+  .alertWindowTop {
+    width: 100%;
+    border-bottom: 1px solid rgba(144, 137, 137, 0.5);
+    height: px2rem(169);
+    h3 {
+      width: 100%;
+      text-align: center;
+      font-weight: normal;
+      height: px2rem(34);
+      font-size: px2rem(34);
+      color: #1F1F1F;
+      padding-top: px2rem(42);
+    }
+    p {
+      width: 100%;
+      text-align: center;
+      color: #1F1F1F;
+      font-size: px2rem(26);
+      height: px2rem(26);
+      margin-top: px2rem(31);
+    }
+  }
+  .alertWindowBot {
+    width: 100%;
+    height: px2rem(87);
+    line-height: px2rem(87);
+    font-size: px2rem(34);
+    text-align: center;
+    .alertBtn {
+      width: 50%;
+      box-sizing: border-box;
+    }
+    .alertBtn:nth-child(1) {
+      color: #858585;
+    }
+    .alertBtn:nth-child(2) {
+      color: #0084FF;
+      border-left: 1px solid rgba(144, 137, 137, 0.5);
+    }
+  }
+}
+
+/******************maxBeans**********************/
+#maxBeans {
+  display: none;
+}
+
+/******************noEnough**********************/
+#noEnough {
+  display: none;
+}
+
+/******************exitWindow**********************/
+#exitWindow {
+  display: none;
+}
+
+

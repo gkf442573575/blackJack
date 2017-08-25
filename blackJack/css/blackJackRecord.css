@@ -1,0 +1,144 @@
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+body {
+  position: relative;
+  overflow-x: hidden; }
+
+html, body {
+  height: 100%;
+  min-height: 100%;
+  font-family: "PingFang-SC-Medium","San Francisco","sans-serif", "Arial","Microsoft YaHei";
+  background: #141926; }
+
+#noRecord {
+  width: 100%;
+  height: 100%;
+  display: none; }
+  #noRecord #bgRecord {
+    width: 6.66667rem;
+    height: 8rem;
+    position: absolute;
+    top: 1.2rem;
+    left: 50%;
+    margin-left: -3.33333rem;
+    background: url("../img/bg_record.png") no-repeat;
+    background-size: contain; }
+  #noRecord #toGame {
+    width: 6.93333rem;
+    height: 1.17333rem;
+    position: absolute;
+    top: 9.57333rem;
+    left: 50%;
+    margin-left: -3.46667rem;
+    background: #ed1c39;
+    text-align: center;
+    line-height: 1.17333rem;
+    color: #ffffff;
+    font-size: 0.53333rem;
+    border-radius: 0.13333rem; }
+
+#record {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto; }
+  #record #recordList {
+    width: 100%;
+    overflow: hidden; }
+    #record #recordList .recordItem {
+      width: 100%;
+      overflow: hidden;
+      background: #27314a;
+      margin-bottom: 1px; }
+      #record #recordList .recordItem .listHeader {
+        width: 100%;
+        height: 1.6rem;
+        position: relative;
+        box-sizing: border-box;
+        padding: 0 0.4rem; }
+        #record #recordList .recordItem .listHeader .bg21 {
+          width: 0.93333rem;
+          height: 0.93333rem;
+          margin-top: 0.33333rem; }
+          #record #recordList .recordItem .listHeader .bg21 img {
+            width: 100%; }
+        #record #recordList .recordItem .listHeader .gameMessage {
+          width: 3.33333rem;
+          height: 100%;
+          box-sizing: border-box;
+          padding: 0.4rem 0;
+          margin-left: 0.29333rem; }
+          #record #recordList .recordItem .listHeader .gameMessage .gameName {
+            width: 100%;
+            height: 0.34667rem;
+            font-size: 0.34667rem;
+            color: #98b4ff; }
+          #record #recordList .recordItem .listHeader .gameMessage .gameTime {
+            width: 100%;
+            height: 0.32rem;
+            font-size: 0.32rem;
+            color: #556699;
+            margin-top: 0.13333rem; }
+        #record #recordList .recordItem .listHeader .beansMessage {
+          width: 100%;
+          height: 100%;
+          line-height: 1.6rem;
+          position: absolute;
+          z-index: 1;
+          top: 0;
+          right: 0; }
+          #record #recordList .recordItem .listHeader .beansMessage div {
+            height: 100%; }
+          #record #recordList .recordItem .listHeader .beansMessage .getCount {
+            min-width: 1.81333rem;
+            font-size: 0.34667rem;
+            text-align: right;
+            margin-right: 0.4rem; }
+          #record #recordList .recordItem .listHeader .beansMessage .win {
+            color: #ecc600; }
+          #record #recordList .recordItem .listHeader .beansMessage .lose {
+            color: #98b4ff; }
+          #record #recordList .recordItem .listHeader .beansMessage .beltCount {
+            width: auto;
+            font-size: 0.32rem;
+            color: #98b4ff;
+            margin-right: 0.02667rem; }
+        #record #recordList .recordItem .listHeader .pullDown {
+          width: 0.50667rem;
+          height: 0.26667rem;
+          position: absolute;
+          right: 0.46667rem;
+          bottom: 0.26667rem;
+          z-index: 5; }
+        #record #recordList .recordItem .listHeader .down {
+          background: url("../img/icon_down.png") no-repeat;
+          background-size: contain; }
+        #record #recordList .recordItem .listHeader .up {
+          background: url("../img/icon_up.png") no-repeat;
+          background-size: contain; }
+      #record #recordList .recordItem .recordMain {
+        width: 100%;
+        height: 1.6rem;
+        display: none; }
+        #record #recordList .recordItem .recordMain .recordBody {
+          width: 9.2rem;
+          height: 1.06667rem;
+          box-sizing: border-box;
+          margin: 0.26667rem 0.4rem;
+          background: #21293e;
+          font-size: 0.32rem;
+          color: #98b4ff;
+          line-height: 1.06667rem;
+          border-radius: 0.13333rem; }
+        #record #recordList .recordItem .recordMain .playerPoker, #record #recordList .recordItem .recordMain .bankerPoker {
+          width: 3.65333rem;
+          height: 100%; }
+        #record #recordList .recordItem .recordMain .playerPoker {
+          margin-left: 1.25333rem; }
+        #record #recordList .recordItem .recordMain .bankerPoker {
+          margin-right: 0.53333rem; }
+
+/*# sourceMappingURL=blackJackRecord.css.map */

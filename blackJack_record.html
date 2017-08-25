@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <meta name="keywords" content="21点">
+    <meta name="description" content="21点">
+    <link rel="stylesheet" href="${image_server_url}images/blackJack/css/blackJackRecord.css">
+    <link rel="stylesheet" href="${image_server_url}images/commonVendor/css/cssreset.min.css">
+    <script src="${image_server_url}images/commonVendor/vendor/felx.js"></script>
+    <script src="${image_server_url}images/commonVendor/vendor/zepto.min.js"></script>
+    <title>21点记录页</title>
+</head>
+<body>
+<div id="noRecord">
+    <div id="bgRecord"></div>
+    <div id="toGame">立即参与</div>
+</div>
+<div id="record">
+    <ul id="recordList"></ul>
+</div>
+
+<script type="text/html" id="forRecordList">
+    <li class="recordItem">
+        <div class="listHeader">
+            <div class="bg21 fl">
+                <img src="${image_server_url}images/blackJack/img/bg_21.png" alt="">
+            </div>
+            <div class="gameMessage fl">
+                <p class="gameName">竞猜21点</p>
+                <p class="gameTime"><span class="date">{{date}}</span>&nbsp;<span class="time">{{time}}</span></p>
+            </div>
+            <div class="beansMessage">
+                <div class="getCount fr">{{getBeans}}</div>
+                <div class="beltCount fr">共投<span>{{beltCount}}</span>金豆</div>
+            </div>
+            <div class="pullDown down"></div>
+        </div>
+        <div class="recordMain">
+            <div class="recordBody">
+                <div class="playerPoker fl">
+                    <div class="pokerName fl">我的牌型:&nbsp;</div>
+                    <div class="playerPokerList fl"></div>
+                </div>
+                <div class="bankerPoker fr">
+                    <div class="pokerName fl">庄家牌型:&nbsp;</div>
+                    <div class="bankerPokerList fl"></div>
+                </div>
+            </div>
+        </div>
+    </li>
+</script>
+<script src="${image_server_url}images/blackJack/js/blackJackRecord.js"></script>
+<script>
+    function recordList(data) {
+        var data = JSON.parse(data);
+        Record.toList(data)
+    }
+</script>
+</body>
+</html>

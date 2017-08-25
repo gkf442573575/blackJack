@@ -1,0 +1,177 @@
+$designWidth: 750;
+$remCount: 10;
+@function px2rem($px) {
+  @return ($px*($remCount/$designWidth))*1rem;
+}
+
+@charset "UTF-8";
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+body{
+  position: relative;
+  overflow-x: hidden;
+}
+html,body{
+  height: 100%;
+  min-height: 100%;
+  font-family: "PingFang-SC-Medium","San Francisco","sans-serif", "Arial","Microsoft YaHei";
+  background: #141926;
+}
+
+#noRecord{
+  width: 100%;
+  height: 100%;
+  display: none;
+  #bgRecord{
+    width: px2rem(500);
+    height: px2rem(600);
+    position: absolute;
+    top:px2rem(90);
+    left: 50%;
+    margin-left: px2rem(-250);
+    background: url("../img/bg_record.png") no-repeat;
+    background-size: contain;
+  }
+  #toGame{
+    width: px2rem(520);
+    height:px2rem(88);
+    position: absolute;
+    top:px2rem(718);
+    left: 50%;
+    margin-left: px2rem(-260);
+    background: #ed1c39;
+    text-align: center;
+    line-height: px2rem(88);
+    color: #ffffff;
+    font-size: px2rem(40);
+    border-radius: px2rem(10);
+  }
+}
+#record{
+  width: 100%;
+  height: 100%;
+  overflow-y:auto;
+  #recordList{
+    width: 100%;
+    overflow: hidden;
+    .recordItem{
+      width: 100%;
+      overflow: hidden;
+      background: #27314a;
+      margin-bottom:1px;
+      .listHeader {
+        width: 100%;
+        height:px2rem(120);
+        position: relative;
+        box-sizing: border-box;
+        padding:0 px2rem(30);
+        .bg21 {
+          width: px2rem(70);
+          height: px2rem(70);
+          margin-top: px2rem(25);
+          img {
+            width: 100%;
+          }
+        }
+        .gameMessage {
+          width: px2rem(250);
+          height:100%;
+          box-sizing: border-box;
+          padding: px2rem(30) 0;
+          margin-left: px2rem(22);
+          .gameName {
+            width: 100%;
+            height: px2rem(26);
+            font-size: px2rem(26);
+            color: #98b4ff;
+          }
+          .gameTime {
+            width: 100%;
+            height: px2rem(24);
+            font-size: px2rem(24);
+            color: #556699;
+            margin-top: px2rem(10);
+          }
+        }
+        .beansMessage {
+          width: 100%;
+          height:100%;
+          line-height: px2rem(120);
+          position: absolute;
+          z-index: 1;
+          top:0;
+          right: 0;
+          div {
+            height: 100%;
+          }
+          .getCount {
+            min-width: px2rem(136);
+            font-size: px2rem(26);
+            text-align: right;
+            margin-right: px2rem(30);
+          }
+          .win {
+            color: #ecc600;
+          }
+          .lose {
+            color: #98b4ff;
+          }
+          .beltCount {
+            width: auto;
+            font-size: px2rem(24);
+            color: #98b4ff;
+            margin-right: px2rem(2);
+          }
+        }
+        .pullDown {
+          width: px2rem(38);
+          height: px2rem(20);
+          position: absolute;
+          right: px2rem(35);
+          bottom: px2rem(20);
+          z-index: 5;
+        }
+        .down {
+          background: url("../img/icon_down.png") no-repeat;
+          background-size: contain;
+        }
+        .up {
+          background: url("../img/icon_up.png") no-repeat;
+          background-size: contain;
+        }
+      }
+      .recordMain{
+        width: 100%;
+        height: px2rem(120);
+        display: none;
+        .recordBody{
+          width:px2rem(690);
+          height: px2rem(80);
+          box-sizing: border-box;
+          margin: px2rem(20) px2rem(30);
+          background: #21293e;
+          font-size: px2rem(24);
+          color: #98b4ff;
+          line-height: px2rem(80);
+          border-radius: px2rem(10);
+        }
+        .playerPoker,.bankerPoker{
+          width: px2rem(274);
+          height: 100%;
+        }
+        .playerPoker{
+          margin-left: px2rem(94);
+        }
+        .bankerPoker{
+          margin-right: px2rem(40);
+        }
+      }
+    }
+  }
+}
+
